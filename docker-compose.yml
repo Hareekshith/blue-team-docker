@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   wazuh.manager:
     image: wazuh/wazuh-manager:4.11.0
@@ -116,6 +114,9 @@ services:
     image: kalilinux/kali-rolling
     stdin_open: true
     tty: true
+    cap_add:
+        - NET_RAW
+        - NET_ADMIN
     command: ["sleep", "infinity"]
     networks:
       - blue-team-lab
