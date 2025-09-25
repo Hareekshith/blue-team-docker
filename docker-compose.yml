@@ -103,6 +103,7 @@ services:
 
   metasploitable2:
     image: tleemcjr/metasploitable2
+    restart: always
     ports:
       - 2222:22
       - 80:80
@@ -112,12 +113,15 @@ services:
 
   kali:
     image: kalilinux/kali-rolling
+    restart: always
     stdin_open: true
     tty: true
     cap_add:
         - NET_RAW
         - NET_ADMIN
     command: ["sleep", "infinity"]
+    volumes:
+        - kali-data:/data
     networks:
       - blue-team-lab
 
@@ -141,3 +145,4 @@ volumes:
   wazuh-indexer-data:
   wazuh-dashboard-config:
   wazuh-dashboard-custom:
+  kali-data:
