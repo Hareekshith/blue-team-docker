@@ -102,7 +102,7 @@ services:
         - lab
 
   metasploitable3:
-    image: kirscht/metasploitable3
+    image: kirscht/metasploitable3-ub1404
     entrypoint: '/entrypoint.sh'
     restart: always
     ports:
