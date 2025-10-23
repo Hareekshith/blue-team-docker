@@ -101,22 +101,26 @@ services:
     networks:
         - lab
 
-  metasploitable3:
-    image: kirscht/metasploitable3-ub1404
-    entrypoint: '/entrypoint.sh'
+  ubuntu:
+    image: ubuntu
+    build: ./ubuntu
     restart: always
+    command: /bin/bash
+    tty: true
+    stdin_open: true
     hostname: vulnerable
     ports:
       - 2222:22
       - 80:80
       - 21:21
     volumes:
-      - ./config/metasploitable_agent:/var/ossec/
+      - ./config/ubuntu-vln:/var/ossec/
     networks:
       - lab
 
   kali:
     image: kalilinux/kali-rolling
+    build: ./kali
     restart: always
     hostname: attacker
     stdin_open: true

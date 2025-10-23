@@ -2,7 +2,7 @@
 A project created with for the people who are learning/working on the domains of blue-teams. This is like their playground, test the vulnerabilities, analyse the exploits and then fix em.
 
 ## Contents
-- Metasploitable3 (Acts as the vulnerable PC!)
+- Ubuntu (Acts as the vulnerable PC!)
 - Kali Rolling (Acts as the attack box)
 - Wazuh (Acts as the log displayer!)
 
@@ -12,15 +12,15 @@ A project created with for the people who are learning/working on the domains of
 - Change your terminal directory to the folder named blue-team-docker
 ```cd blue-team-docker```
 - Make sure that docker is running
-```sudo dockerd (or) sudo systemctl enable docker```
+```sudo dockerd (or) sudo systemctl start docker```
 - Install all the tools using docker-compose!
 ```sudo docker compose up -d```
 - Go inside kali's docker container and execute the below command
 ```sudo docker exec -it blue-team-docker-kali-1 /bin/bash```
 
 ## How the dev wishes that you use it?
-- Connect the Metasploitable3 with Kali using the open ssh port in Metasploitable3
-- Link the Metasploitable3 container with Wazuh
+- Connect the Ubuntu with Kali using the open ssh port in Metasploitable3
+- Link the Ubuntu container with Wazuh
 - Setup the vulnerability(s)
 - Play around!
 
