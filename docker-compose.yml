@@ -102,19 +102,21 @@ services:
         - lab
 
   ubuntu:
-    image: ubuntu
+    image: ubuntu:25.04
     build: ./ubuntu
     restart: always
     command: /bin/bash
     tty: true
     stdin_open: true
     hostname: vulnerable
+    volumes:  
+      - ./entrypoint.sh:/entrypoint.sh:ro
+      - ./config/metasploitable_agent:/var/ossec/
+    entrypoint: ["./entrypoint.sh"]
     ports:
-      - 2222:22
-      - 80:80
-      - 21:21
-    volumes:
-      - ./config/ubuntu-vln:/var/ossec/
+      - "2222:22"
+      - "80:80"
+      - "21:21"
     networks:
       - lab
 
