@@ -1,16 +1,25 @@
-# Wazuh App Copyright (C) 2017, Wazuh Inc. (License GPLv2)
-version: '3'
 
+# Wazuh Certs Generator - compatible with Wazuh 5.0+
 services:
   generator:
-    image: wazuh/wazuh-certs-generator:0.0.2
+    image: wazuh/wazuh-certs-generator:0.0.3
     hostname: wazuh-certs-generator
+    environment:
+      # Make sure the tool matches your Wazuh version
+      - CERT_TOOL_VERSION=4.14
     volumes:
-      - ./config/wazuh_indexer_ssl_certs/:/certificates/
-      - ./config/certs.yml:/config/certs.yml
+      # Local destination for generated certs
+      - ./config/wazuh_indexer_ssl_certs:/certificates/
+      # Config describing the nodes to generate certs for
+      - ./config/certs.yml:/config/certs.yml:ro
+    command: >
+      bash -c "rm -rf /certificates/* &&
+               /usr/bin/wazuh-certs-tool.sh -A -f /config/certs.yml -o /certificates &&
+               chown -R 1000:1000 /certificates"
     networks:
       - lab
 
 networks:
   lab:
     driver: bridge
+

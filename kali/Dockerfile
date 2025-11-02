@@ -1,10 +1,11 @@
 FROM kalilinux/kali-rolling
 
-# Update and install kali-linux-headless, remove unwanted packages
 RUN apt-get update && \
-    apt-get install -y kali-linux-headless && \
-    apt-get remove -y llvm-18 llvm-19 && \
+    apt-get install -y \
+        iputils-ping net-tools curl wget openssh-server sudo nano vim nmap metasploit-framework && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*CMD ["/bin/bash"]
 
-CMD ["/bin/bash"]
+EXPOSE 22
+
+CMD service ssh start && tail -f /dev/null

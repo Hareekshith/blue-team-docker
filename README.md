@@ -1,4 +1,5 @@
 # Blue-Team
+<img src="https://github.com/hareekshith/blue-team-docker/blob/main/Home_CS_LAB.png" alt="Poster"> <br>
 A project created with for the people who are learning/working on the domains of blue-teams. This is like their playground, test the vulnerabilities, analyse the exploits and then fix em.
 
 ## Contents
