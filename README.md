@@ -8,25 +8,23 @@ A project created with for the people who are learning/working on the domains of
 - Wazuh (Acts as the log displayer!)
 
 ## How to Setup?
-- Clone this project
+- Clone this project <br>
 ```git clone https://github.com/hareekshith/blue-team-docker```
-- Change your terminal directory to the folder named blue-team-docker
+- Change your terminal directory to the folder named blue-team-docker <br>
 ```cd blue-team-docker```
-- Make sure that docker is running
+- Make sure that docker is running <br>
 ```sudo dockerd (or) sudo systemctl start docker```
-- Build the docker containers (Attacker and Target)
-```sudo docker compose build ubuntu kali```
-- Install all the containers using docker-compose!
-```sudo docker compose up -d```
-- Go inside kali's docker container and execute the below command
+- Build and Install all the containers using docker-compose! <br>
+```sudo docker compose up -d --build```
+- Go inside kali's docker container and execute the below command <br>
 ```sudo docker exec -it blue-team-docker-kali-1 /bin/bash```
-- Use ssh technique to ssh into the target pc (hostname: vulnerable, password: dockerpassword)
+- Use ssh technique to ssh into the target pc (hostname: vulnerable, password: dockerpassword) <br>
 ```ssh dockeruser@vulnerable```
-
 
 ## How the dev wishes that you use it?
 - Connect the Ubuntu with Kali using the open ssh port in Kali
 - Setup the vulnerability(s)
+- View the logs in the Wazuh's Website UI (Wazuh-Dashboard/Kibana)
 - Play around!
 
 ## Thanks
