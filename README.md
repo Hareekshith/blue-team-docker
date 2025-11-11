@@ -28,3 +28,7 @@ A project created with for the people who are learning/working on the domains of
 - Connect the Ubuntu with Kali using the open ssh port in Kali
 - Setup the vulnerability(s)
 - Play around!
+
+## Thanks
+- <a href="https://github.com/wazuh/wazuh-docker">Wazuh's Docker Repository</a>
+- Docker images of kali and ubuntu
